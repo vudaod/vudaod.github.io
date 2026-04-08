@@ -1,21 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Profile Công ty</title>
+  <title>Báo giá LCS - Proposal</title>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-    }
-    embed {
-      width: 100%;
-      height: 90vh;
-      border: 1px solid #ccc;
-    }
+    body { font-family: Arial, sans-serif; margin:0; background:#eef2f7; color:#2c3e50; }
+    .page { width: 900px; margin: 24px auto; background:#fff; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,.08); overflow:hidden; }
+    .cover { background: linear-gradient(135deg,#1a73e8,#4f8df5); color:#fff; padding:40px; }
+    .cover .brand { display:flex; align-items:center; justify-content:space-between; }
+    .logo { width:140px; height:40px;  color:#1a73e8; display:flex; align-items:center; justify-content:center; font-weight:bold; border-radius:6px; }
+    .cover h1 { margin:20px 0 6px; font-size:28px; }
+    .cover p { margin:0; opacity:.9; }
+    .meta { margin-top:16px; font-size:13px; opacity:.95; }
+
+    .content { padding:30px 36px; }
+    .section { margin-bottom:26px; }
+    .section h2 { font-size:18px; margin:0 0 10px; padding-left:10px; border-left:4px solid #1a73e8; }
+    .muted { color:#6b7a90; }
+    ul { margin:0; padding-left:18px; }
+    li { margin:6px 0; }
+
+    .kpi { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:12px; }
+    .kpi .box { background:#f5f9ff; border:1px solid #dbe7ff; border-radius:8px; padding:14px; text-align:center; }
+    .kpi .box b { font-size:18px; color:#1a73e8; }
+
+    table { width:100%; border-collapse:collapse; }
+    th, td { border:1px solid #e6e9ef; padding:10px; }
+    th { background:#1a73e8; color:#fff; text-align:left; }
+
+    .highlight { background:#f0f6ff; border:1px solid #d6e4ff; border-radius:8px; padding:16px; }
+    .price { font-size:24px; font-weight:bold; color:#d32f2f; }
+    .timeline { display:flex; gap:12px; }
+    .timeline .step { flex:1; background:#fafbff; border:1px dashed #d6def5; border-radius:8px; padding:12px; }
+
+    .cta { background:#1a73e8; color:#fff; padding:18px; border-radius:8px; display:flex; align-items:center; justify-content:space-between; }
+    .cta b { font-size:18px; }
+
+    .footer { font-size:12px; color:#6b7a90; border-top:1px solid #eef2f7; padding:16px 36px 24px; }
+    .sign { display:flex; justify-content:space-between; margin-top:30px; }
+    .sign .col { width:45%; text-align:center; }
+    .stamp { margin-top:40px; height:60px; border:1px dashed #cfd6e6; border-radius:6px; }
   </style>
 </head>
-<body> 
-  <embed src="profile.pdf" type="application/pdf">
+<body>
+  <div class="page">
+    <div class="cover">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="meta">
+          <div>Khách hàng: ____________________</div>
+          <div>Ngày: ____________________</div>
+        </div>
+      </div>
+      <h1>ĐỀ XUẤT TRIỂN KHAI HỆ THỐNG LCS</h1>
+      <p>Learning Center System</p>
+      <div class="meta">Mục tiêu: Đưa hệ thống vào vận hành nhanh, ổn định, tối ưu chi phí.</div>
+    </div>
+
+    <div class="content">
+      <div class="section">
+        <h2>1. Tóm tắt giá trị</h2>
+        <p class="muted">Giải pháp LCS giúp trung tâm quản lý toàn bộ vận hành (học viên, lớp học, tài chính) trên một nền tảng duy nhất, giảm sai sót thủ công và tăng hiệu suất.</p>
+        <div class="kpi">
+          <div class="box"><b>1–2 tuần</b><div>Go-live nhanh</div></div>
+          <div class="box"><b>~30–50%</b><div>Giảm thao tác thủ công</div></div>
+          <div class="box"><b>100%</b><div>Dữ liệu tập trung</div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>2. Phạm vi triển khai (MVP)</h2>
+        <ul>
+          <li>Khắc phục lỗi publish / Docker, đảm bảo chạy production</li>
+          <li>Fix bug critical ảnh hưởng vận hành</li>
+          <li>Cấu hình môi trường (DB/SMTP/Logging) & auto-migrate</li>
+          <li>Triển khai 01 môi trường (VPS/Cloud) + HTTPS qua reverse proxy</li>
+          <li>Thiết lập logging (Serilog) & runbook vận hành</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>3. Tính năng hệ thống (đã có)</h2>
+        <table>
+          <tr><th>Module</th><th>Mô tả</th></tr>
+          <tr><td>Khóa học</td><td>Chương trình, cấp độ, môn học, tài liệu</td></tr>
+          <tr><td>Lớp học</td><td>Lịch học, phòng, sức chứa, phân công GV</td></tr>
+          <tr><td>Học viên</td><td>Hồ sơ, tiến độ, lịch sử đóng tiền</td></tr>
+          <tr><td>Đăng ký & Học phí</td><td>Đăng ký, danh sách chờ, cấu hình phí/chiết khấu</td></tr>
+          <tr><td>Hóa đơn & Thanh toán</td><td>Tạo hóa đơn, ghi nhận thanh toán, in ấn</td></tr>
+          <tr><td>Nhân sự</td><td>Giảng viên, vai trò, lịch dạy</td></tr>
+          <tr><td>Điểm danh</td><td>Chuyên cần, báo cáo theo lớp</td></tr>
+          <tr><td>Kho</td><td>Tồn kho, nhập/xuất, cảnh báo</td></tr>
+          <tr><td>Báo cáo</td><td>Doanh thu, học viên, hiệu suất</td></tr>
+          <tr><td>Email</td><td>Template cshtml, reset password</td></tr>
+          <tr><td>Phân quyền</td><td>RBAC theo module/chức năng</td></tr>
+        </table>
+      </div>
+
+      <div class="section highlight">
+        <h2>4. Chi phí & thời gian</h2>
+        <div class="price">35.000.000 VND (Trọn gói)</div>
+        <p>Thời gian thực hiện: 5 – 10 ngày làm việc</p>
+        <p class="muted">Phạm vi có thể điều chỉnh theo yêu cầu thực tế sau audit nhanh.</p>
+      </div>
+
+      <div class="section">
+        <h2>5. Lộ trình triển khai</h2>
+        <div class="timeline">
+          <div class="step"><b>Day 1–2</b><div>Audit nhanh & lập kế hoạch</div></div>
+          <div class="step"><b>Day 3–7</b><div>Fix bug & cấu hình</div></div>
+          <div class="step"><b>Day 8–10</b><div>Deploy & nghiệm thu</div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>6. Điều khoản & bàn giao</h2>
+        <ul>
+          <li>Thanh toán: 30% bắt đầu / 40% staging / 30% production</li>
+          <li>Bàn giao: source code, Docker, tài liệu vận hành</li>
+          <li>Hỗ trợ: 7 ngày sau go-live</li>
+          <li>Không bao gồm tích hợp mới (SMS/Payment) nếu chưa yêu cầu</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>7. Rủi ro & giả định</h2>
+        <ul>
+          <li>Codebase hiện có có thể build/run; không rewrite từ đầu</li>
+          <li>Hạ tầng (VPS/Cloud) sẵn sàng trước khi deploy</li>
+          <li>Dữ liệu đầu vào hợp lệ; không bao gồm làm sạch dữ liệu lớn</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div>
+          <b>Sẵn sàng triển khai trong 48 giờ</b>
+          <div>Phê duyệt báo giá để bắt đầu ngay.</div>
+        </div>
+        <div>Liên hệ: ____________</div>
+      </div>
+
+      <div class="sign">
+        <div class="col">
+          <div><b>ĐẠI DIỆN NHÀ CUNG CẤP</b></div>
+          <div class="stamp"></div>
+          <div>(Ký tên & đóng dấu)</div>
+        </div>
+        <div class="col">
+          <div><b>ĐẠI DIỆN KHÁCH HÀNG</b></div>
+          <div class="stamp"></div>
+          <div>(Ký tên & đóng dấu)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Báo giá có hiệu lực 15 ngày. Mọi thay đổi phạm vi sẽ được thống nhất lại bằng phụ lục.
+    </div>
+  </div>
 </body>
 </html>
